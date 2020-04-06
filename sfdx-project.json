@@ -6,7 +6,7 @@
     },
     {
       "path": "record-validation",
-      "default": true
+      "default": false
     }
   ],
   "namespace": "",
