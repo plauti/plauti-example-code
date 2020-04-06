@@ -1,0 +1,13 @@
+<apex:page controller="TestDataController" title="Record Validation Test Data" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="Test Data">
+            <apex:commandButton action="{!resetOrg}" value="Reset Org"/>
+            <br/>
+            <h3>Reset Org will do all actions below.</h3>
+            <ol>
+                <li><apex:commandLink action="{!emptyOrg}" value="Empty Org"/></li>
+                <li><apex:commandLink action="{!createLeads}" value="Create Leads"/></li>
+            </ol>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

@@ -8,6 +8,11 @@
       "path": "record-validation",
       "default": false
     }
+    ,
+    {
+      "path": "test-data",
+      "default": false
+    }
   ],
   "namespace": "",
   "sfdcLoginUrl": "https://login.salesforce.com",
