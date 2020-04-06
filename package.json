@@ -1,8 +1,8 @@
 {
-  "name": "salesforce-app",
+  "name": "plauti-example-code",
   "private": true,
   "version": "1.0.0",
-  "description": "Salesforce App",
+  "description": "plauti-example-code",
   "scripts": {
     "lint": "npm run lint:lwc",
     "lint:lwc": "eslint force-app/main/default/lwc",
@@ -21,5 +21,22 @@
     "eslint": "^5.16.0",
     "prettier": "^1.19.1",
     "prettier-plugin-apex": "^1.0.0"
+  },
+  "main": "index.js",
+  "directories": {
+    "example": "examples"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/plauti/plauti-example-code.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/plauti/plauti-example-code/issues"
+  },
+  "homepage": "https://github.com/plauti/plauti-example-code#readme",
+  "dependencies": {
+    "jsforce": "^1.9.3"
   }
 }
