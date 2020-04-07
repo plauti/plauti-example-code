@@ -9,7 +9,8 @@ helper.getConnection = async function() {
     
     if (await fs.existsSync('./loginData.json')) {
         var stat = await fs.statSync('./loginData.json');
-        var dif = Math.round((new Date().getTime() - stat.birthtime.getTime()) / 60000);
+        var dif = Math.round((new Date().getTime() - stat.mtime.getTime()) / 60000);
+        
         if (dif > 60) {
             await child_process.execSync('sfdx force:org:display --json > ./loginData.json');
         }
