@@ -1,4 +1,4 @@
-<apex:page controller="TestDataController" title="Record Validation Test Data" lightningStylesheets="true">
+<apex:page controller="TestDataController" title="Plauti Test Data" lightningStylesheets="true">
     <apex:form>
         <apex:pageBlock title="Test Data">
             <apex:commandButton action="{!resetOrg}" value="Reset Org"/>

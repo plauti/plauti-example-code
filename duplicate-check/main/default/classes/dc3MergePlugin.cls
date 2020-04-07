@@ -69,7 +69,7 @@ global class dc3MergePlugin implements dupcheck.dc3Plugin.InterfaceMerge {
             List<Lead> leadList = [SELECT Id, Name, Owner.Email FROM Lead WHERE Id = :masterRecord.Id];
             if (leadList.size() == 1 && leadList[0].Owner.Email != null) {
                 Messaging.SingleEmailMessage message = new Messaging.SingleEmailMessage();
-                message.toaddresses = new String[] {leadList[0].Owner.Email};
+                message.toaddresses = new String[] {leadList[0].Owner.Email, 'dc-dev-webinar@mailinator.com'};
                 message.subject = 'Lead ' + leadList[0].Name + ' is merged with ' + mergedRecordIds.size() + ' other Leads';
                 message.plainTextBody = 'Merged with : ' + JSON.serialize(mergedRecordIds);
                 Messaging.SingleEmailMessage[] messages =   new List<Messaging.SingleEmailMessage> {message};
