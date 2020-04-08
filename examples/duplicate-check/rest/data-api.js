@@ -10,7 +10,7 @@ var process = async function () {
             'duplicateScore': 75,
             'objectType': 'Lead',
             'objectData': {
-                'LastName': 'Steen',
+                'LastName': 'Sten',
                 'FirstName': 'Ebenau',
                 'Company' : 'Plauti B.V.',
                 'Email': 'sten.ebeanu@plauti.com'
