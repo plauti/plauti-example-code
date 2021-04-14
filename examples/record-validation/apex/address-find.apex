@@ -9,8 +9,8 @@ input.container = ''; // optional: to retrieve sub-addresses in a street contain
 
 recordval.AddressFindOutput_v1 output = api.findAddress(input);
 
-for (AddressFindOutputItem_v1 a : output.suggestions) {
-   System.debug(LoggingLevel.DEBUG, JSON.serialize(a)); 
+for (recordval.AddressFindOutputItem_v1 a : output.suggestions) {
+   System.debug(LoggingLevel.DEBUG, a); 
 }
 
 System.debug(LoggingLevel.DEBUG, output.status);

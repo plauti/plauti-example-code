@@ -7,5 +7,5 @@ input.container = 'NL|AV|A|B8348'; // the container from the address find api en
 
 recordval.AddressRetrieveOutput_v1 output = api.retrieveAddress(input);
 
-System.debug(LoggingLevel.DEBUG, JSON.serialize(output.Address)); 
+System.debug(LoggingLevel.DEBUG, output.Address); 
 System.debug(LoggingLevel.DEBUG, output.status);
