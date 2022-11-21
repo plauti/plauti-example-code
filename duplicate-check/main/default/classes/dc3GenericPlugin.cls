@@ -1,6 +1,6 @@
 global class dc3GenericPlugin implements dupcheck.dc3PluginInterface {
 
-    private static Set<String> implementedEvents = new Set<String>{'MERGE_SET_MASTER', 'MERGE_SET_FIELD','SEARCH_BEFORE'};
+    private static Set<String> implementedEvents = new Set<String>{'MERGE_SET_MASTER', 'MERGE_SET_FIELD','SEARCH_BEFORE','CACHE_PUT','CACHE_GET'};
 
     global Boolean isAvailable(dupcheck.dc3Plugin.PluginEventType eventType) {
         return dc3GenericPlugin.implementedEvents.contains(eventType.name());
@@ -18,10 +18,27 @@ global class dc3GenericPlugin implements dupcheck.dc3PluginInterface {
             when SEARCH_BEFORE {
                 return searchBefore((dupcheck.dc3PluginModel.SearchBeforeInput) eventData);
             }
+            when CACHE_PUT {
+                cachePut((Map<String, Object>) eventData);
+                return null;
+            }
+            when CACHE_GET {
+                 return cacheGet((Map<String, Object>) eventData);
+            }
             when else {
                 return null;
             }
         }
+    }
+    
+    public void cachePut(Map<String, Object> input) {
+        String cacheName = 'local.dcMetaData.' + (String) input.get('cacheName');
+        Cache.Session.put(cacheName, input.get('cacheData'));
+    }
+    
+    public Object cacheGet(Map<String, Object> input) {
+        String cacheName = 'local.dcMetaData.' + (String) input.get('cacheName');
+        return Cache.Session.get(cacheName);
     }
 
     public dupcheck.dc3PluginModel.SearchBeforeOutput searchBefore(dupcheck.dc3PluginModel.SearchBeforeInput input) {
